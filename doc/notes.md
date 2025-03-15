@@ -5,3 +5,6 @@ Mapped into JSON-glTF-like objects.
 - slate reads/deserializes the json file into zig
 - slate generates the nim/zig/whatever-else code
 _Would also make it possible to rely on slate for TS-to-Shader codegen_
+
+## Schema Generator
+https://github.com/vega/ts-json-schema-generator
