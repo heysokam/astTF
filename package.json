@@ -1,21 +1,39 @@
 {
-  "name"        : "astTF",
-  "version"     : "0.0.0",
-  "description" : "astTF | Transmission Format for Abstract Syntax Trees",
-  "license"     : "LGPL-3.0-or-later",
-
-  "author"      : { "name": "Ivan Mar (sOkam!)", "url": "https://github.com/heysokam" },
-  "homepage"    : "https://github.com/heysokam/astTF",
-  "bugs"        : { "url": "https://github.com/heysokam/astTF/issues" },
-  "repository"  : { "type": "git", "url": "git+https://github.com/heysokam/astTF.git" },
-  "keywords"    : ["compiler", "ast", "serialize", "fileformat", "typescript"],
-
-  "files"       : ["public"],
-  "main"        : "public/index.js",
-  "types"       : "public/index.d.ts",
-  "type"        : "module",
-
-  "scripts" : {
-    "build" : "bunx tsc"
+  "name": "astTF",
+  "version": "0.0.0",
+  "description": "astTF | Transmission Format for Abstract Syntax Trees",
+  "license": "LGPL-3.0-or-later",
+  "author": {
+    "name": "Ivan Mar (sOkam!)",
+    "url": "https://github.com/heysokam"
+  },
+  "homepage": "https://github.com/heysokam/astTF",
+  "bugs": {
+    "url": "https://github.com/heysokam/astTF/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heysokam/astTF.git"
+  },
+  "keywords": [
+    "compiler",
+    "ast",
+    "serialize",
+    "fileformat",
+    "typescript"
+  ],
+  "files": [
+    "public"
+  ],
+  "main": "public/index.js",
+  "types": "public/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "bunx tsc",
+    "check": "bun check-exports",
+    "check-exports": "bunx attw --profile esm-only --pack ."
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.17.4"
   }
 }
