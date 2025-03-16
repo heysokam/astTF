@@ -1,0 +1,8 @@
+{
+  "$schema"    : "http://json-schema.org/draft-07/schema#",
+  "properties" : {
+    "metadata" : { "$ref": "./metadata.schema.json"},
+    "data"     : { "type": "array", "items": {"$ref": "./toplevel.schema.json"} }
+  },
+  "required"   : ["metadata", "data"]
+}
