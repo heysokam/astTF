@@ -1,0 +1,8 @@
+{
+  "$schema": "../spec/astTF.schema.json",
+  "metadata": {
+    "description": "An Empty astTF file",
+    "language" : null
+  },
+  "data": []
+}
