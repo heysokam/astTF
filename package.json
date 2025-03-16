@@ -7,9 +7,15 @@
   "author"      : { "name": "Ivan Mar (sOkam!)", "url": "https://github.com/heysokam" },
   "homepage"    : "https://github.com/heysokam/astTF",
   "bugs"        : { "url": "https://github.com/heysokam/astTF/issues" },
+  "repository"  : { "type": "git", "url": "git+https://github.com/heysokam/astTF.git" },
   "keywords"    : ["compiler", "ast", "serialize", "fileformat", "typescript"],
 
-  "files"       : ["src"],
+  "files"       : ["public"],
+  "main"        : "public/index.js",
+  "types"       : "public/index.d.ts",
   "type"        : "module",
-  "repository"  : { "type": "git", "url": "git+https://github.com/heysokam/astTF.git" }
+
+  "scripts" : {
+    "build" : "bunx tsc"
+  }
 }
