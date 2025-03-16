@@ -1,0 +1,15 @@
+{
+  "name"        : "astTF",
+  "version"     : "0.0.0",
+  "description" : "astTF | Transmission Format for Abstract Syntax Trees",
+  "license"     : "LGPL-3.0-or-later",
+
+  "author"      : { "name": "Ivan Mar (sOkam!)", "url": "https://github.com/heysokam" },
+  "homepage"    : "https://github.com/heysokam/astTF",
+  "bugs"        : { "url": "https://github.com/heysokam/astTF/issues" },
+  "keywords"    : ["compiler", "ast", "serialize", "fileformat", "typescript"],
+
+  "files"       : ["src"],
+  "type"        : "module",
+  "repository"  : { "type": "git", "url": "git+https://github.com/heysokam/astTF.git" }
+}
