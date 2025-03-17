@@ -33,7 +33,8 @@
     "check": "bun run build && bun check:errors && bun check:syntax && bun check:exports",
     "check:errors": "bunx tsc --noEmit",
     "check:syntax": "bunx eslint . --max-warnings 0 --report-unused-disable-directives",
-    "check:exports": "bunx attw --pack ."
+    "check:exports": "bunx attw --pack .",
+    "spec": "bun ./src/spec.ts"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.17.4",
