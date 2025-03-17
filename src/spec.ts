@@ -5,6 +5,8 @@
  * */
 // @deps std
 import { log as echo } from 'console'
+// @deps types
+import { TSchema } from '@sinclair/typebox'
 // @deps astTF
 import * as fs from 'fs'
 import * as S from './schema'
@@ -18,8 +20,8 @@ const specDir = "spec/"
 //______________________________________
 // @section Specification Generator: Helpers
 //____________________________
-function info (...data:any[]) :void { echo(Prefix, ...data) }
-function toJson <T>(schema :T) :string { return JSON.stringify(schema, null, 2) }
+function info (...data:unknown[]) :void { echo(Prefix, ...data) }
+function toJson (schema :TSchema) :string { return JSON.stringify(schema, null, 2) }
 
 
 //______________________________________
