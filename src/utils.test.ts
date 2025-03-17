@@ -4,11 +4,13 @@
 // @deps tests
 import { describe, expect, it } from "bun:test"
 // @deps astTF
-import { hello } from "./utils"
+import * as astTF from "./utils"
 
 
-describe("Utils", () => {
-  it("should add", () => {
-    expect(hello(1,2)).toBe(3)
-  })
+describe("Dummy", () => {
+  describe("hello", () => {
+    it("should add 1+2", () => { expect(astTF.hello(1,2)).toBe(3) })
+    it("should add 3+4", () => { expect(astTF.hello(3,4)).not.toBe(3) })
+  }) //:: Utils.hello
 }) //:: Utils
+
