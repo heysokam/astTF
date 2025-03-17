@@ -19,7 +19,7 @@ export default tseslint.config(
       "@typescript-eslint/consistent-type-definitions": "off"
     },
   },
-  {
-    ignores: ["public/**", "eslint.config.mjs"]
-  }
+
+  { ignores: ["public/**", "eslint.config.mjs"] }
 );
+
