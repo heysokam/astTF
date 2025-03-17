@@ -10,7 +10,9 @@ export default tseslint.config(
   {
     languageOptions: {
       parserOptions: {
-        projectService  : true,
+        projectService  : {
+          allowDefaultProject: ['src/*.{js,jsx,ts,tsx}', 'src/tools/*.{js,jsx,ts,tsx}']
+        },
         tsconfigRootDir : import.meta.dirname,
       }
     },
@@ -20,6 +22,8 @@ export default tseslint.config(
     },
   },
 
-  { ignores: ["public/**", "eslint.config.mjs"] }
+  {
+    ignores: ["public/**",  "eslint.config.mjs"],
+  }
 );
 

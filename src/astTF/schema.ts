@@ -2,7 +2,7 @@
 //  astTF  |  Copyright (C) Ivan Mar (sOkam!)  |  GNU LGPLv3 or later  :
 //:_____________________________________________________________________
 // @deps External
-import { Type as T } from "@sinclair/typebox"
+import { Type as T, TSchema } from "@sinclair/typebox"
 
 export const Suffix = ".schema.json"
 
@@ -121,4 +121,10 @@ export type Variable_t  = {
   data     :Data
   runtime  :boolean
 }
+
+
+//______________________________________
+// @section Schema Helper Tools
+//____________________________
+export function toJson (schema :TSchema) :string { return JSON.stringify(schema, null, 2) }
 

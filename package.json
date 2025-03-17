@@ -30,7 +30,7 @@
   "type": "module",
   "scripts": {
     "build": "bunx tsc",
-    "check": "bun run build && bun check:errors && bun check:syntax && bun check:exports",
+    "check": "bun check:errors && bun run build && bun check:syntax && bun check:exports",
     "check:errors": "bunx tsc --noEmit",
     "check:syntax": "bunx eslint . --max-warnings 0 --report-unused-disable-directives",
     "check:exports": "bunx attw --pack .",

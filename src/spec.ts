@@ -3,38 +3,22 @@
 //:_____________________________________________________________________
 /** @fileoverview Generator for the `T.schema.json` files that describe the astTF Specification
  * */
-// @deps std
-import { log as echo } from 'console'
-// @deps types
-import { TSchema } from '@sinclair/typebox'
 // @deps astTF
-import * as fs from 'fs'
-import * as S from './schema'
-
-
-//______________________________________
-// @section Specification Generator: Configuration
-//____________________________
-const Prefix  = "⸄astTF⸅"
-const specDir = "spec/"
-
-
-//______________________________________
-// @section Specification Generator: Helpers
-//____________________________
-function info (...data:unknown[]) :void { echo(Prefix, ...data) }
-function toJson (schema :TSchema) :string { return JSON.stringify(schema, null, 2) }
+import * as cfg from '@tools/cfg'
+import { info } from '@tools/log'
+import * as F from '@tools/files'
+import * as S from '@astTF/schema'
 
 
 //______________________________________
 // @section Specification Generator: Entry Point
 //____________________________
 if (process.argv[1] === import.meta.filename) run()
-function run() :void {
+function run():void {
   for (const file of S.Specification) {
-    const path = specDir+file.id
+    const path = cfg.specDir+file.id
     info("Generating schema file at:", path)
-    fs.writeFileSync(path, toJson(file.schema))
+    F.write(path, S.toJson(file.schema))
   }
 }
 

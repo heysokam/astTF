@@ -31,17 +31,20 @@
     "sourceMap": true,
     "plugins": [],
     "outDir": "public",
-    "rootDir": "src",
+    "rootDir": "src/astTF",
     "paths": {
-      "@/*": [
-        "./src/*"
+      "@astTF/*": [
+        "./src/astTF/*"
+      ],
+      "@tools/*": [
+        "./src/tools/*"
       ]
     }
   },
   "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "../eslint.config.mjs"
+    "./src/astTF//**/*.ts",
+    "./src/astTF/**/*.tsx",
+    "../../eslint.config.mjs"
   ],
   "exclude": [
     "node_modules",

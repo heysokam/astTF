@@ -2,7 +2,7 @@
 //  astTF  |  Copyright (C) Ivan Mar (sOkam!)  |  GNU LGPLv3 or later  :
 //:_____________________________________________________________________
 import { type Static } from "@sinclair/typebox"
-import * as S from './schema'
+import * as S from '@astTF/schema'
 
 
 //______________________________________
