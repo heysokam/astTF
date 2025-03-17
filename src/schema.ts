@@ -30,7 +30,7 @@ export const TopLevel = T.Union([
 })
 
 export const astTF = T.Object({
-  metadata  :T.Ref(Metadata.$id!, {}),
+  metadata  :T.Ref(Metadata.$id!, {}), // eslint-disable-line
   data      :T.Array(TopLevel, { description: "@description List of TopLevel nodes in the tree." }),
 }, { description: `
 @description Entry point of an astTF file`
