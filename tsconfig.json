@@ -27,7 +27,12 @@
     "jsx": "preserve",
     "incremental": true,
     "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
     "plugins": [],
+    "types": [
+      "bun-types"
+    ],
     "outDir": "public",
     "rootDir": "src",
     "paths": {
@@ -38,9 +43,11 @@
   },
   "include": [
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "../eslint.config.mjs"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "public"
   ]
 }

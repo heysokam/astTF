@@ -1,3 +1,6 @@
+//:_____________________________________________________________________
+//  astTF  |  Copyright (C) Ivan Mar (sOkam!)  |  GNU LGPLv3 or later  :
+//:_____________________________________________________________________
 
 export type LiteralValue = string
 
@@ -60,6 +63,6 @@ export type Metadata = {
  * */
 export type astTF = {
   metadata  :Metadata
-  data      :Array<TopLevel>
+  data      :TopLevel[]
 }
 
