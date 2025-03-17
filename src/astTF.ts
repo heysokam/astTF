@@ -8,6 +8,12 @@ import * as S from './schema'
 //______________________________________
 // @section Schema Types
 //____________________________
+// Base Elements
+export type Identifier  = Static<typeof S.Identifier>
+// Elements
+export type Variable    = Static<typeof S.Variable>
+export type Procedure   = Static<typeof S.Procedure>
+// Root Data
 export type Language    = Static<typeof S.Language>
 export type Description = Static<typeof S.Description>
 export type Metadata    = Static<typeof S.Metadata>
