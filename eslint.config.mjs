@@ -17,6 +17,9 @@ export default tseslint.config(
     rules: {
       // Stylistic Disables
       "@typescript-eslint/consistent-type-definitions": "off"
-    }
+    },
+  },
+  {
+    ignores: ["public/**", "eslint.config.mjs"]
   }
 );
