@@ -11,7 +11,7 @@ export const Suffix = ".schema.json"
  * */
 export const Refs = {
   // Base Elements
-  Identifier : "indentifier" + Suffix,
+  Identifier : "identifier"  + Suffix,
   // Elements
   Procedure  : "procedure"   + Suffix,
   Variable   : "variable"    + Suffix,
