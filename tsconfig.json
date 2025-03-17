@@ -30,9 +30,6 @@
     "declarationMap": true,
     "sourceMap": true,
     "plugins": [],
-    "types": [
-      "bun-types"
-    ],
     "outDir": "public",
     "rootDir": "src",
     "paths": {
