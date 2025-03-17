@@ -1,0 +1,14 @@
+{
+  "$id": "variable.schema.json",
+  "description": "@description TODO:",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The Identifier used to represent this Element.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

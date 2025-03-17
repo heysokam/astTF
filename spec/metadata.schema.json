@@ -1,9 +1,15 @@
 {
-  "$schema"       : "http://json-schema.org/draft-07/schema#",
-  "type"          : "object",
-  "properties"    : {
-    "language"    : { "type": ["string", "null"] },
-    "description" : { "type": ["string", "null"] }
-  },
-  "required"      : ["language"]
+  "$id": "metadata.schema.json",
+  "description": "@description Metadata describing the contents of the file",
+  "type": "object",
+  "properties": {
+    "language": {
+      "description": "@description Identifier that represents the target language of the AST\n@note The parser and code generators are responsible for creating a standard for the contents of this type.",
+      "type": "string"
+    },
+    "description": {
+      "description": "@description Human-readable string that describes the contents of the tree.",
+      "type": "string"
+    }
+  }
 }
