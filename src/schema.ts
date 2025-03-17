@@ -24,14 +24,14 @@ export const Refs = {
 //______________________________________
 // @section Elements
 //____________________________
-export const Identifier = T.String({
-description:`The Identifier used to represent this Element.`
+export const Identifier = T.String({$id: Refs.Identifier,
+description:`@description The Identifier used to represent this Element.`
 })
 
 export const Procedure = T.Object({
   name  :T.Required(Identifier),
 }, {$id: Refs.Procedure,
-description: `@description TODO:`
+description:`@description TODO:`
 }) // TODO:
 
 export const Variable = T.Object({
@@ -44,7 +44,7 @@ export const TopLevel = T.Union([
   T.Ref(Refs.Procedure),
   T.Ref(Refs.Variable),
 ], {
-description: `@description Node declared/described at the toplevel of the source code`
+description:`@description Node declared/described at the toplevel of the source code`
 })
 
 
@@ -115,10 +115,6 @@ export type Data = {
   value  :Expression
   read   :boolean
   write  :boolean
-}
-
-export type Procedure_t = {
-  name :string
 }
 
 export type Variable_t  = {

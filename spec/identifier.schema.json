@@ -1,4 +1,5 @@
 {
-  "description": "The Identifier used to represent this Element.",
+  "$id": "identifier.schema.json",
+  "description": "@description The Identifier used to represent this Element.",
   "type": "string"
 }

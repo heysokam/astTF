@@ -11,11 +11,13 @@ import { TSchema } from '@sinclair/typebox'
 import * as fs from 'fs'
 import * as S from './schema'
 
+
 //______________________________________
 // @section Specification Generator: Configuration
 //____________________________
 const Prefix  = "⸄astTF⸅"
 const specDir = "spec/"
+
 
 //______________________________________
 // @section Specification Generator: Helpers
@@ -35,3 +37,4 @@ function run() :void {
     fs.writeFileSync(path, toJson(file.schema))
   }
 }
+
