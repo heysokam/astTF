@@ -34,7 +34,8 @@
     "check:errors": "bunx tsc --noEmit",
     "check:syntax": "bunx eslint . --max-warnings 0 --report-unused-disable-directives",
     "check:exports": "bunx attw --pack .",
-    "spec": "bun ./src/spec.ts"
+    "spec": "bun ./src/spec.ts",
+    "samples": "bun ./src/samples.ts"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.17.4",
