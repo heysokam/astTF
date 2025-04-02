@@ -4,7 +4,7 @@
 // @deps tests
 import { describe, expect, it } from "bun:test"
 // @deps astTF
-import * as Dummy from "@tools/dummy"
+import * as Dummy from "./dummy"
 
 
 describe("Dummy", () => {

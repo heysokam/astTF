@@ -31,15 +31,7 @@
     "sourceMap": true,
     "plugins": [],
     "outDir": "public",
-    "rootDir": "src/astTF",
-    "paths": {
-      "@astTF/*": [
-        "./src/astTF/*"
-      ],
-      "@tools/*": [
-        "./src/tools/*"
-      ]
-    }
+    "rootDir": "src/astTF"
   },
   "include": [
     "./src/astTF//**/*.ts",

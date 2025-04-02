@@ -4,10 +4,10 @@
 /** @fileoverview Generator for the `T.schema.json` files that describe the astTF Specification
  * */
 // @deps astTF
-import * as cfg from '@tools/cfg'
-import { info } from '@tools/log'
-import * as F from '@tools/files'
-import * as S from '@astTF/schema'
+import * as cfg from './tools/cfg'
+import { info } from './tools/log'
+import * as F from './tools/files'
+import * as S from './astTF/schema'
 
 
 //______________________________________
