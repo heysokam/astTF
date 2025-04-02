@@ -1,0 +1,8 @@
+{
+  "$id": "statement.list.schema.json",
+  "description": "@description StatementList.TODO:",
+  "type": "array",
+  "items": {
+    "$ref": "statement.schema.json"
+  }
+}

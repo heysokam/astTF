@@ -1,0 +1,5 @@
+{
+  "$id": "expression.schema.json",
+  "description": "@description Expression.TODO:",
+  "$ref": "literal.schema.json"
+}

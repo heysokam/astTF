@@ -1,0 +1,5 @@
+{
+  "$id": "literal.value.schema.json",
+  "description": "@description LiteralValue.TODO:",
+  "type": "string"
+}

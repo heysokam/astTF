@@ -1,15 +1,23 @@
 {
   "$id": "variable.schema.json",
-  "description": "@description TODO:",
+  "description": "@description Variable.TODO:",
   "type": "object",
   "properties": {
     "name": {
       "$id": "identifier.schema.json",
       "description": "@description The Identifier used to represent this Element.",
       "type": "string"
+    },
+    "data": {
+      "$ref": "data.schema.json"
+    },
+    "runtime": {
+      "type": "boolean"
     }
   },
   "required": [
-    "name"
+    "name",
+    "data",
+    "runtime"
   ]
 }

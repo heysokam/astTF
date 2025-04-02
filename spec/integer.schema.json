@@ -1,0 +1,17 @@
+{
+  "$id": "integer.schema.json",
+  "description": "@description Integer.TODO:",
+  "type": "object",
+  "properties": {
+    "signed": {
+      "type": "boolean"
+    },
+    "value": {
+      "$ref": "literal.value.schema.json"
+    }
+  },
+  "required": [
+    "signed",
+    "value"
+  ]
+}

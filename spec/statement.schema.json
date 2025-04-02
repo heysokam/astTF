@@ -1,0 +1,5 @@
+{
+  "$id": "statement.schema.json",
+  "description": "@description Statement.TODO:",
+  "$ref": "variable.schema.json"
+}

@@ -3,7 +3,9 @@
 //:_____________________________________________________________________
 /** @fileoverview Tools: Logging Helpers
  * */
+// @deps std
 import { log as echo } from 'console'
+// @deps astTF
 import * as cfg from './cfg'
 
 export function info (...data:unknown[]) :void { echo(cfg.Prefix, ...data) }

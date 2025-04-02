@@ -1,0 +1,17 @@
+{
+  "$id": "string.schema.json",
+  "description": "@description String.TODO:",
+  "type": "object",
+  "properties": {
+    "multiline": {
+      "type": "boolean"
+    },
+    "value": {
+      "$ref": "literal.value.schema.json"
+    }
+  },
+  "required": [
+    "multiline",
+    "value"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "expression.list.schema.json",
+  "description": "@description ExpressionList.TODO:",
+  "type": "array",
+  "items": {
+    "$ref": "expression.schema.json"
+  }
+}

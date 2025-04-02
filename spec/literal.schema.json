@@ -1,0 +1,12 @@
+{
+  "$id": "literal.schema.json",
+  "description": "@description Literal.TODO:",
+  "anyOf": [
+    {
+      "$ref": "integer.schema.json"
+    },
+    {
+      "$ref": "string.schema.json"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "$id": "data.schema.json",
+  "description": "@description Data.TODO:",
+  "type": "object",
+  "properties": {
+    "value": {
+      "$ref": "expression.schema.json"
+    },
+    "read": {
+      "type": "boolean"
+    },
+    "write": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "read",
+    "write"
+  ]
+}
