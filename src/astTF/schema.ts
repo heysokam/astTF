@@ -18,6 +18,7 @@ export const Refs = {
   Strng          : "string"          + Suffix,
   Literal        : "literal"         + Suffix,
   Data           : "data"            + Suffix,
+  Return         : "return"          + Suffix,
   // Elements: General
   Expression     : "expression"      + Suffix,
   ExpressionList : "expression.list" + Suffix,
@@ -78,6 +79,9 @@ export const Data = T.Object({
 description: `@description Data.TODO:`
 }) // TODO:
 
+export const Return = T.Ref(Refs.Expression, {$id: Refs.Return,
+description:`@description Return.TODO:`
+}) // TODO:
 
 //______________________________________
 // @section Elements: General
@@ -95,6 +99,7 @@ description:`@description ExpressionList.TODO:`
 
 export const Statement = T.Union([
   // T.Ref(Refs.Procedure),
+  T.Ref(Refs.Return),
   T.Ref(Refs.Variable),
 ], {$id: Refs.Statement,
 description:`@description Statement.TODO:`
@@ -170,6 +175,7 @@ export const Specification = [
   { id: Refs.Strng,          schema: Strng          },
   { id: Refs.Literal,        schema: Literal,       },
   { id: Refs.Data,           schema: Data           },
+  { id: Refs.Return,         schema: Return         },
   // Elements: General
   { id: Refs.Expression,     schema: Expression     },
   { id: Refs.ExpressionList, schema: ExpressionList },

@@ -13,6 +13,12 @@ import * as S from './schema'
 // Elements: Base
 export type Identifier     = Static<typeof S.Identifier>
 export type Type           = Static<typeof S.Type>
+export type LiteralValue   = Static<typeof S.LiteralValue>
+export type Integer        = Static<typeof S.Integer>
+export type Strng          = Static<typeof S.Strng>
+export type Literal        = Static<typeof S.Literal>
+export type Data           = Static<typeof S.Data>
+export type Return         = Static<typeof S.Return>
 // Elements: General
 export type Expression     = Static<typeof S.Expression>
 export type ExpressionList = Static<typeof S.ExpressionList>
@@ -27,10 +33,4 @@ export type Description    = Static<typeof S.Description>
 export type Metadata       = Static<typeof S.Metadata>
 export type TopLevel       = Static<typeof S.TopLevel>
 export type astTF          = Static<typeof S.astTF>
-
-
-//______________________________________
-// @section TODO:
-//____________________________
-export type LiteralValue = Static<typeof S.LiteralValue>
 
