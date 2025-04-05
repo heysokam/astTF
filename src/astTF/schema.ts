@@ -116,6 +116,7 @@ description:`@description StatementList.TODO:`
 export const Procedure = T.Object({
   name  :T.Required(Identifier),
   retT  :T.Optional(T.Ref(Refs.Type)),
+  body  :T.Optional(T.Ref(Refs.StatementList))
 }, {$id: Refs.Procedure,
 description:`@description Procedure.TODO:`
 }) // TODO:
