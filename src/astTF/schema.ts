@@ -19,16 +19,20 @@ export const Refs = {
   Literal        : "literal"         + Suffix,
   Data           : "data"            + Suffix,
   Return         : "return"          + Suffix,
+  Arg            : "arg"             + Suffix,
   // Elements: General
   Expression     : "expression"      + Suffix,
-  ExpressionList : "expression.list" + Suffix,
   Statement      : "statement"       + Suffix,
+  // Elements: Multi-item
+  ExpressionList : "expression.list" + Suffix,
   StatementList  : "statement.list"  + Suffix,
+  ArgList        : "arg.list"        + Suffix,
   // Elements: TopLevel
   Procedure      : "procedure"       + Suffix,
   Variable       : "variable"        + Suffix,
   // Root Data
   Metadata       : "metadata"        + Suffix,
+  AstData        : "astdata"         + Suffix,
   astTF          : "astTF"           + Suffix
 }
 
@@ -79,34 +83,41 @@ export const Data = T.Object({
 description: `@description Data.TODO:`
 }) // TODO:
 
-export const Return = T.Ref(Refs.Expression, {$id: Refs.Return,
+export const Return = T.Object({
+  expr  :T.Ref(Refs.Expression),
+}, {$id: Refs.Return,
 description:`@description Return.TODO:`
 }) // TODO:
+
+
+export const Args = T.String({$id: Refs.LiteralValue,
+description:`@description LiteralValue.TODO:`
+}) // TODO:
+
 
 //______________________________________
 // @section Elements: General
 //____________________________
-export const Expression = T.Union([
-  T.Ref(Refs.Literal),
-], {$id: Refs.Expression,
+export const ExpressionKind = T.Union([
+  T.Literal("Literal"),
+]); export const Expression = T.Object({
+  kind: ExpressionKind,
+  data: T.Union([
+    T.Ref(Refs.Literal),
+])}, {$id: Refs.Expression,
 description:`@description Expression.TODO:`
 }) // TODO:
 
-export const ExpressionList = T.Array(T.Ref(Refs.Expression), {$id: Refs.ExpressionList,
-description:`@description ExpressionList.TODO:`
-}) // TODO:
-
-
-export const Statement = T.Union([
-  // T.Ref(Refs.Procedure),
-  T.Ref(Refs.Return),
-  T.Ref(Refs.Variable),
-], {$id: Refs.Statement,
+export const StatementKind = T.Union([
+  T.Literal("Return"),
+  T.Literal("Variable"),
+]); export const Statement = T.Object({
+  kind : StatementKind,
+  data : T.Union([
+    T.Ref(Refs.Return),
+    T.Ref(Refs.Variable),
+])}, {$id: Refs.Statement,
 description:`@description Statement.TODO:`
-}) // TODO:
-
-export const StatementList = T.Array(T.Ref(Refs.Statement), {$id: Refs.StatementList,
-description:`@description StatementList.TODO:`
 }) // TODO:
 
 
@@ -115,6 +126,7 @@ description:`@description StatementList.TODO:`
 //____________________________
 export const Procedure = T.Object({
   name  :T.Required(Identifier),
+  args  :T.Optional(T.Ref(Refs.ArgsList)),
   retT  :T.Optional(T.Ref(Refs.Type)),
   body  :T.Optional(T.Ref(Refs.StatementList))
 }, {$id: Refs.Procedure,
@@ -129,12 +141,33 @@ export const Variable = T.Object({
 description: `@description Variable.TODO:`
 }) // TODO:
 
-export const TopLevel = T.Union([
-  T.Ref(Refs.Procedure),
-  T.Ref(Refs.Variable),
-], {
+export const TopLevelKind = T.Union([
+  T.Literal("Procedure"),
+  T.Literal("Variable"),
+]); export const TopLevel = T.Object({
+  kind : TopLevelKind,
+  data : T.Union([
+    T.Ref(Refs.Procedure),
+    T.Ref(Refs.Variable),
+  ])}, {
 description:`@description Node declared/described at the toplevel of the source code`
 })
+
+
+//______________________________________
+// @section Elements: Multi-item
+//____________________________
+export const ExpressionList = T.Array(T.Ref(Refs.Expression), {$id: Refs.ExpressionList,
+description:`@description ExpressionList.TODO:`
+}) // TODO:
+
+export const StatementList = T.Array(T.Ref(Refs.Statement), {$id: Refs.StatementList,
+description:`@description StatementList.TODO:`
+}) // TODO:
+
+export const ArgsList = T.Array(T.Ref(Refs.Arg), {$id: Refs.ArgsList,
+description:`@description ArgsList.TODO:`
+}) // TODO:
 
 
 //______________________________________
@@ -156,9 +189,42 @@ export const Metadata = T.Object({
 description:`@description Metadata describing the contents of the file`
 })
 
+
+export const TypeStore = T.Array(T.Ref(Refs.Type),{
+description:`@description TODO: ast.data.types. | Indices accessing this list MUST be distinct.`
+}) // TODO:
+
+export const ArgsStore = T.Array(T.Ref(Refs.ArgsList), {
+description:`@description TODO: ast.data.args. | Indices accessing this list MUST be distinct.`
+}) // TODO:
+
+/*
+export const PragmasStore = T.Array(T.Ref(Refs.Pragmas), {
+description:`@description TODO: ast.data.pragmas. | Indices accessing this list MUST be distinct.` }),
+}) // TODO:
+*/
+
+export const StatementStore = T.Array(T.Ref(Refs.StatementList), {
+description:`@description TODO: ast.data.statements. | Indices accessing this list MUST be distinct.`
+}) // TODO:
+
+export const NodeStore = T.Array(TopLevel, {
+description:`@description List of TopLevel nodes of the syntax tree. Indices accessing this list MUST be distinct.`
+})
+
+export const AstData = T.Object({
+  types      :TypeStore,
+  // args       :ArgsStore,
+  // pragmas    :PragmasStore,
+  statements :StatementStore,
+  nodes      :NodeStore,
+  }, {$id: Refs.Data,
+description:`@description Container for the AST data of the file`
+})
+
 export const astTF = T.Object({
   metadata  :T.Ref(Refs.Metadata),
-  data      :T.Array(TopLevel, { description:`@description List of TopLevel nodes in the tree.` }),
+  data      :T.Ref(Refs.AstData),
 }, {$id: Refs.astTF,
 description:`@description Entry point of an astTF file`
 })
@@ -187,6 +253,7 @@ export const Specification = [
   { id: Refs.Variable,       schema: Variable       },
   // Root Data
   { id: Refs.Metadata,       schema: Metadata       },
+  { id: Refs.AstData,        schema: AstData        },
   { id: Refs.astTF,          schema: astTF          },
 ]
 
