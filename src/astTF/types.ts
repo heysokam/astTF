@@ -11,6 +11,8 @@ import * as S from './schema'
 // @section Schema Types
 //____________________________
 // Elements: Base
+export type SourceCode     = Static<typeof S.SourceCode>
+export type SourceLocation = Static<typeof S.SourceLocation>
 export type Identifier     = Static<typeof S.Identifier>
 export type Type           = Static<typeof S.Type>
 export type LiteralValue   = Static<typeof S.LiteralValue>

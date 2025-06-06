@@ -11,6 +11,8 @@ export const Suffix = ".schema.json"
  * */
 export const Refs = {
   // Elements: Base
+  SourceCode     : "source.code"     + Suffix,
+  SourceLocation : "source.location" + Suffix,
   Identifier     : "identifier"      + Suffix,
   Type           : "type"            + Suffix,
   LiteralValue   : "literal.value"   + Suffix,
@@ -40,12 +42,23 @@ export const Refs = {
 //______________________________________
 // @section Elements: Base
 //____________________________
-export const Identifier = T.String({$id: Refs.Identifier,
+export const SourceCode = T.String({$id: Refs.SourceCode,
+description:`@description The source Code that this AST was generated from.`
+})
+
+export const SourceLocation = T.Object({
+  start :T.Required(T.Number()),
+  end   :T.Required(T.Number()),
+}, {$id: Refs.SourceLocation,
+description:`@description A source code Location, represented as (start,end) positions in the code string.`
+})
+
+export const Identifier = T.Required(SourceLocation, {$id: Refs.Identifier,
 description:`@description The Identifier used to represent this Element.`
 })
 
 export const Type = T.Object({
-  name  :T.Required(Identifier),
+  name  :T.Ref(Refs.Identifier),
 }, {$id: Refs.Type,
 description:`@description Type.TODO:`
 }) // TODO:
@@ -218,6 +231,7 @@ export const AstData = T.Object({
   // pragmas    :PragmasStore,
   statements :StatementStore,
   nodes      :NodeStore,
+  source     :T.Required(SourceCode),
   }, {$id: Refs.Data,
 description:`@description Container for the AST data of the file`
 })
@@ -235,26 +249,28 @@ description:`@description Entry point of an astTF file`
 //____________________________
 export const Specification = [
   // Elements: Base
-  { id: Refs.Identifier,     schema: Identifier     },
-  { id: Refs.Type,           schema: Type           },
-  { id: Refs.LiteralValue,   schema: LiteralValue   },
-  { id: Refs.Integer,        schema: Integer        },
-  { id: Refs.Strng,          schema: Strng          },
-  { id: Refs.Literal,        schema: Literal,       },
-  { id: Refs.Data,           schema: Data           },
-  { id: Refs.Return,         schema: Return         },
+  { id: Refs.SourceCode,     schema: SourceCode      },
+  { id: Refs.SourceLocation, schema: SourceLocation  },
+  { id: Refs.Identifier,     schema: Identifier      },
+  { id: Refs.Type,           schema: Type            },
+  { id: Refs.LiteralValue,   schema: LiteralValue    },
+  { id: Refs.Integer,        schema: Integer         },
+  { id: Refs.Strng,          schema: Strng           },
+  { id: Refs.Literal,        schema: Literal,        },
+  { id: Refs.Data,           schema: Data            },
+  { id: Refs.Return,         schema: Return          },
   // Elements: General
-  { id: Refs.Expression,     schema: Expression     },
-  { id: Refs.ExpressionList, schema: ExpressionList },
-  { id: Refs.Statement,      schema: Statement      },
-  { id: Refs.StatementList,  schema: StatementList  },
+  { id: Refs.Expression,     schema: Expression      },
+  { id: Refs.ExpressionList, schema: ExpressionList  },
+  { id: Refs.Statement,      schema: Statement       },
+  { id: Refs.StatementList,  schema: StatementList   },
   // Elements: TopLevel
-  { id: Refs.Procedure,      schema: Procedure      },
-  { id: Refs.Variable,       schema: Variable       },
+  { id: Refs.Procedure,      schema: Procedure       },
+  { id: Refs.Variable,       schema: Variable        },
   // Root Data
-  { id: Refs.Metadata,       schema: Metadata       },
-  { id: Refs.AstData,        schema: AstData        },
-  { id: Refs.astTF,          schema: astTF          },
+  { id: Refs.Metadata,       schema: Metadata        },
+  { id: Refs.AstData,        schema: AstData         },
+  { id: Refs.astTF,          schema: astTF           },
 ]
 
 
